@@ -10,6 +10,7 @@
 	<packaging>jar</packaging>
 
 	<name>_003_spring-security-role-based-authorization</name>
+	<description>Configure Role Based Authorization</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -83,5 +84,4 @@
 		</plugins>
 	</build>
 
-	<description>Configure Role Based Authorization</description>
 </project>
