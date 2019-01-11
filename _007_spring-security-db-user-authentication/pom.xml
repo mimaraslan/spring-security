@@ -10,6 +10,7 @@
 	<packaging>jar</packaging>
 
 	<name>_007_spring-security-db-user-authentication</name>
+	<description>Database Authentication - User Repository</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -83,5 +84,4 @@
 		</plugins>
 	</build>
 
-	<description>Database Authentication - User Repository</description>
 </project>
