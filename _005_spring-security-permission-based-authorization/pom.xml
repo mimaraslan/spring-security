@@ -10,6 +10,7 @@
 	<packaging>jar</packaging>
 
 	<name>_005_spring-security-permission-based-authorization</name>
+	<description>Configure Permission Based Authorization</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -83,7 +84,4 @@
 		</plugins>
 	</build>
 
-	<description>Configure Permission Based Authorization
-
-</description>
 </project>
