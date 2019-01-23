@@ -10,6 +10,7 @@
 	<packaging>jar</packaging>
 
 	<name>_009_spring-security-db-user-details-service-provider</name>
+	<description>Database Authentication - Configure Database Provider</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -83,5 +84,4 @@
 		</plugins>
 	</build>
 
-	<description>Database Authentication - Configure Database Provider</description>
 </project>
