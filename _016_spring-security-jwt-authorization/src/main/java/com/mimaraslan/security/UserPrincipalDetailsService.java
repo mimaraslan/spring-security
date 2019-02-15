@@ -10,18 +10,17 @@ import com.mimaraslan.repository.UserRepository;
 
 @Service
 public class UserPrincipalDetailsService implements UserDetailsService {
-    private UserRepository userRepository;
+	private UserRepository userRepository;
 
-    public UserPrincipalDetailsService(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
+	public UserPrincipalDetailsService(UserRepository userRepository) {
+		this.userRepository = userRepository;
+	}
 
+	@Override
+	public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
+		User user = this.userRepository.findByUsername(s);
+		UserPrincipal userPrincipal = new UserPrincipal(user);
 
-    @Override
-    public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-        User user = this.userRepository.findByUsername(s);
-        UserPrincipal userPrincipal = new UserPrincipal(user);
-
-        return userPrincipal;
-    }
+		return userPrincipal;
+	}
 }
