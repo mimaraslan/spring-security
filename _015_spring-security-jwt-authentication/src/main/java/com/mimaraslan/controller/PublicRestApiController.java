@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mimaraslan.model.User;
-import com.mimaraslan.service.UserRepository;
+import com.mimaraslan.repository.UserRepository;
 
 import java.util.List;
 
