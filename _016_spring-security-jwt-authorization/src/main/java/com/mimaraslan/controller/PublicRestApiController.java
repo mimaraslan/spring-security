@@ -14,27 +14,27 @@ import java.util.List;
 @RequestMapping("api/public")
 @CrossOrigin
 public class PublicRestApiController {
-    private UserRepository userRepository;
+	private UserRepository userRepository;
 
-    public PublicRestApiController(UserRepository userRepository){
-        this.userRepository = userRepository;
-    }
+	public PublicRestApiController(UserRepository userRepository) {
+		this.userRepository = userRepository;
+	}
 
-    // Available to all authenticated users
-    @GetMapping("test")
-    public String test1(){
-        return "API Test";
-    }
+	// Available to all authenticated users
+	@GetMapping("test")
+	public String test1() {
+		return "API Test";
+	}
 
-    // Available to managers
-    @GetMapping("management/reports")
-    public String reports(){
-        return "Some report data";
-    }
+	// Available to managers
+	@GetMapping("management/reports")
+	public String reports() {
+		return "Some report data";
+	}
 
-    // Available to ROLE_ADMIN
-    @GetMapping("admin/users")
-    public List<User> users(){
-        return this.userRepository.findAll();
-    }
+	// Available to ROLE_ADMIN
+	@GetMapping("admin/users")
+	public List<User> users() {
+		return this.userRepository.findAll();
+	}
 }
