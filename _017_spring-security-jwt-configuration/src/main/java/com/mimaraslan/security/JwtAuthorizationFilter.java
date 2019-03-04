@@ -1,8 +1,8 @@
 package com.mimaraslan.security;
 
 import com.auth0.jwt.JWT;
-import com.mimaraslan.db.UserRepository;
 import com.mimaraslan.model.User;
+import com.mimaraslan.service.UserRepository;
 
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
