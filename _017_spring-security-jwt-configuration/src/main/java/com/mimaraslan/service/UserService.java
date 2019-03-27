@@ -12,28 +12,28 @@ import java.util.List;
 
 @Service
 public class UserService implements CommandLineRunner {
-	
-    private UserRepository userRepository;
-    private PasswordEncoder passwordEncoder;
 
-    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder) {
-        this.userRepository = userRepository;
-        this.passwordEncoder = passwordEncoder;
-    }
+	private UserRepository userRepository;
+	private PasswordEncoder passwordEncoder;
 
-    @Override
-    public void run(String... args) {
-        // Delete all
-        this.userRepository.deleteAll();
+	public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder) {
+		this.userRepository = userRepository;
+		this.passwordEncoder = passwordEncoder;
+	}
 
-        // Create users
-        User admin = new User("admin",passwordEncoder.encode("admin"),"ADMIN","ACCESS_TEST1,ACCESS_TEST2");
-        User katerina = new User("katerina",passwordEncoder.encode("katerina"),"USER","");
-        User manager = new User("manager",passwordEncoder.encode("manager"),"MANAGER","ACCESS_TEST1");
+	@Override
+	public void run(String... args) {
+		// Delete all
+		this.userRepository.deleteAll();
 
-        List<User> users = Arrays.asList(admin,katerina,manager);
+		// Create users
+		User admin = new User("admin", passwordEncoder.encode("admin"), "ADMIN", "ACCESS_TEST1,ACCESS_TEST2");
+		User katerina = new User("katerina", passwordEncoder.encode("katerina"), "USER", "");
+		User manager = new User("manager", passwordEncoder.encode("manager"), "MANAGER", "ACCESS_TEST1");
 
-        // Save to DB
-        this.userRepository.saveAll(users);
-    }
+		List<User> users = Arrays.asList(admin, katerina, manager);
+
+		// Save to DB
+		this.userRepository.saveAll(users);
+	}
 }
