@@ -62,12 +62,17 @@
 			<scope>test</scope>
 		</dependency>
 
-		<!-- Security -->
+		<!-- Security Security -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
-	</dependencies>
+        <!-- Spring Security Thymeleaf Integration -->
+        <dependency>
+            <groupId>org.thymeleaf.extras</groupId>
+            <artifactId>thymeleaf-extras-springsecurity5</artifactId>
+        </dependency>
+    </dependencies>
 
 	<build>
 		<plugins>
