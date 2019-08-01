@@ -16,6 +16,7 @@ import com.mimaraslan.db.UserRepository;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
+	
     private UserPrincipalDetailsService userPrincipalDetailsService;
     private UserRepository userRepository;
 
@@ -31,9 +32,20 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http
-        	.authorizeRequests()
-        	.antMatchers("*").permitAll();
+        http       
+        	// remove csrf and state in session because in jwt we do not need them
+        	.csrf().disable()
+            .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)    
+            // add jwt filters (1. authentication, 2. authorization)
+            .and()
+            .addFilter(new JwtAuthenticationFilter(authenticationManager()))
+            .addFilter(new JwtAuthorizationFilter(authenticationManager(),  this.userRepository))
+            .authorizeRequests()
+            // configure access rules
+            .antMatchers(HttpMethod.POST, "/login").permitAll()
+            .antMatchers("/api/public/management/*").hasRole("MANAGER")
+            .antMatchers("/api/public/admin/*").hasRole("ADMIN")
+            .anyRequest().authenticated();
         // https://localhost:8443/api/public/test
         // https://localhost:8443/api/public/management/reports
         // https://localhost:8443/api/public/admin/users

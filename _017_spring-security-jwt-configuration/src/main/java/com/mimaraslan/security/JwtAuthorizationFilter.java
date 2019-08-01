@@ -49,13 +49,13 @@ public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
 
     private Authentication getUsernamePasswordAuthentication(HttpServletRequest request) {
     	
-        String token = request.getHeader(JwtProperties.HEADER_STRING);
+        String token = request.getHeader(JwtProperties.HEADER_STRING).replace(JwtProperties.TOKEN_PREFIX,"");
 
         if (token != null) {
             // parse the token and validate it
             String userName = JWT.require(HMAC512(JwtProperties.SECRET.getBytes()))
                     .build()
-                    .verify(token.replace(JwtProperties.TOKEN_PREFIX, ""))
+                    .verify(token)
                     .getSubject();
 
             // Search in the DB if we find the user by token subject (username)
