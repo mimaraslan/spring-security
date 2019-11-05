@@ -32,7 +32,7 @@ public class UserService implements CommandLineRunner {
 
         List<User> users = Arrays.asList(admin,katerina,manager);
 
-        // Save to db
+        // Save to DB
         this.userRepository.saveAll(users);
     }
 }
