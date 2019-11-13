@@ -5,16 +5,17 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.mimaraslan.model.User;
+import com.mimaraslan.repository.UserRepository;
 
 import java.util.Arrays;
 import java.util.List;
 
 @Service
-public class DbInit implements CommandLineRunner {
+public class UserService implements CommandLineRunner {
     private UserRepository userRepository;
     private PasswordEncoder passwordEncoder;
 
-    public DbInit(UserRepository userRepository, PasswordEncoder passwordEncoder) {
+    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
     }
