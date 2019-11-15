@@ -5,8 +5,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.mimaraslan.db.UserRepository;
 import com.mimaraslan.model.User;
+import com.mimaraslan.repository.UserRepository;
 
 @Service
 public class UserPrincipalDetailsService implements UserDetailsService {
