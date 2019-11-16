@@ -5,6 +5,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.mimaraslan.model.User;
+import com.mimaraslan.repository.UserRepository;
 
 import java.util.Arrays;
 import java.util.List;
