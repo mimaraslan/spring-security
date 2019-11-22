@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.mimaraslan.db.UserRepository;
 import com.mimaraslan.model.User;
+import com.mimaraslan.repository.UserRepository;
 
 @RestController
 @RequestMapping("api/public")
