@@ -42,11 +42,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
              .antMatchers("/admin/**").hasRole("ADMIN")
              .antMatchers("/management/**").hasAnyRole("ADMIN", "MANAGER")
             
-             // http://localhost:8443/api/public/test1
+                // https://localhost:8443/api/public/test1
              .antMatchers("/api/public/test1").hasAuthority("ACCESS_TEST1")
+
+                // https://localhost:8443/api/public/test2
              .antMatchers("/api/public/test2").hasAuthority("ACCESS_TEST2")
-             
-             // http://localhost:8443/api/public/users
+
+                // https://localhost:8443/api/public/users
              .antMatchers("/api/public/users").hasRole("ADMIN") // ADMIN
              .and()
              .httpBasic();

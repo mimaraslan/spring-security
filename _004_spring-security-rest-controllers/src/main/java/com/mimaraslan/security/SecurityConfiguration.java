@@ -37,7 +37,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
              // .antMatchers("/api/public/test1").authenticated()
              // .antMatchers("/api/public/test2").authenticated()
               .antMatchers("/api/public/**").authenticated()
-             // .antMatchers("/api/public/**").hasRole("ADMIN")
+              .antMatchers("/api/public/**").hasRole("ADMIN")
              .and()
              .httpBasic();
     }

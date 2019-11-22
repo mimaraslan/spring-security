@@ -19,7 +19,7 @@ public class MainApplication {
 
     @Bean
     public ServletWebServerFactory servletContainer() {
-        // Enable SSL Trafic
+        // Enable SSL Traffic
         TomcatServletWebServerFactory tomcat = new TomcatServletWebServerFactory() {
             @Override
             protected void postProcessContext(Context context) {
@@ -45,7 +45,7 @@ public class MainApplication {
     private Connector httpToHttpsRedirectConnector() {
         Connector connector = new Connector(TomcatServletWebServerFactory.DEFAULT_PROTOCOL);
         connector.setScheme("http");
-        connector.setPort(8082);
+        connector.setPort(8080);
         connector.setSecure(false);
         connector.setRedirectPort(8443);
         return connector;
