@@ -5,12 +5,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.mimaraslan</groupId>
-	<artifactId>_005_spring-security-permission-based-authorization</artifactId>
+	<artifactId>_005_spring-security-rest-controllers</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>_005_spring-security-permission-based-authorization</name>
-	<description>Configure Permission Based Authorization</description>
+	<name>_005_spring-security-rest-controllers</name>
+	<description>REST Controllers</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -63,7 +63,7 @@
 			<scope>test</scope>
 		</dependency>
 
-		<!-- Security Security -->
+		<!-- Spring Security -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>

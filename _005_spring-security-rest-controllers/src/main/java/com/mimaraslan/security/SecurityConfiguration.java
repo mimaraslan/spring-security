@@ -17,20 +17,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth
         	.inMemoryAuthentication()
-        	
-        	.withUser("admin").password(passwordEncoder().encode("admin"))
-        	.roles("ADMIN")
-        	.authorities("ACCESS_TEST1", "ACCESS_TEST2") // Permission Authorization
-        	
+        	.withUser("admin").password(passwordEncoder().encode("admin")).roles("ADMIN")
         	.and()
-        	.withUser("katerina").password(passwordEncoder().encode("katerina"))
-        	.roles("USER") 
-        	
+        	.withUser("katerina").password(passwordEncoder().encode("katerina")).roles("USER") 
 	        .and()
-        	.withUser("manager").password(passwordEncoder().encode("manager"))
-        	.roles("MANAGER")
-        	.authorities("ACCESS_TEST2"); // Permission Authorization
-        
+        	.withUser("manager").password(passwordEncoder().encode("manager")).roles("MANAGER");
     }
 
     @Override
@@ -38,20 +29,15 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http
              .authorizeRequests()
              .antMatchers("/index.html").permitAll()
-             .antMatchers("/profile/**").authenticated()
+             .antMatchers("/profile/index").authenticated()
              .antMatchers("/admin/**").hasRole("ADMIN")
              .antMatchers("/management/**").hasAnyRole("ADMIN", "MANAGER")
             
              // http://localhost:8080/api/public/test1
              // .antMatchers("/api/public/test1").authenticated()
              // .antMatchers("/api/public/test2").authenticated()
-             
-             // .antMatchers("/api/public/**").authenticated()
-             
-             // .antMatchers("/api/public/**").hasRole("ADMIN")
-               
-             .antMatchers("/api/public/test1").hasAuthority("ACCESS_TEST1")
-             .antMatchers("/api/public/test2").hasAuthority("ACCESS_TEST2")
+              .antMatchers("/api/public/**").authenticated()
+              .antMatchers("/api/public/**").hasRole("ADMIN")
              .and()
              .httpBasic();
     }
