@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:insert="fragments.html :: headerfiles"></head>
+
+<body>
+<header th:insert="fragments.html :: nav"></header>
+
+<!-- Page content goes here -->
+<div class="container">
+
+		<div sec:authorize="hasRole('USER')">
+			<hr>This content is only shown to USER.
+		</div>
+		<div sec:authorize="hasRole('ADMIN')">
+			<hr>This content is only shown to ADMIN.
+		</div>
+
+		<div sec:authorize="hasAnyRole('ADMIN','MANAGER')">
+			<hr>This content is only shown to ADMIN and MANAGER.
+		</div>
+
+		<div sec:authorize="hasAnyRole('ADMIN','USER')">
+			<hr>This content is only shown to ADMIN and USER.
+		</div>
+
+		<sec:authorize ifAllGranted="ROLE_ADMIN,ROLE_USER">
+			<hr><p>Must have ROLE_ADMIN and ROLE_USER</p>
+		</sec:authorize>
+
+		<sec:authorize access="hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')">
+			<hr><p>Must have ROLE_ADMIN and ROLE_USER</p>
+		</sec:authorize>
+
+		<div sec:authorize="isAuthenticated()">
+			<hr>Text visible only to authenticated users.
+		</div>
+
+		<div class="jumbotron">
+        <h1 class="display-4">Hello, Spring Boot Security!</h1>
+        <p class="lead">This is the home page of our web application. Anyone can access it, even if they have not signed in.</p>
+        <hr class="my-4">
+        <p>Using this example, you will become more familiar with Spring Security concepts:)</p>
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" href="https://spring.io/projects/spring-security" role="button">Learn more about Spring Security</a>
+        </p>
+    </div>
+</div>
+</body>
+</html>
