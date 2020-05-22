@@ -30,10 +30,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	        .and()
         	.withUser("manager").password(passwordEncoder().encode("manager"))
         	//.roles("MANAGER")
-        	.authorities("ACCESS_TEST2","ROLE_MANAGER"); // Permission ROLE_MANAGER
-        
+        	.authorities("ACCESS_TEST2","ROLE_MANAGER"); // Permission ROLE_MANAGER        
     }
-
      
     @Override
     protected void configure(HttpSecurity http) throws Exception {

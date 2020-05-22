@@ -12,6 +12,7 @@ import com.mimaraslan.repository.UserRepository;
 @RestController
 @RequestMapping("api/public")
 public class PublicRestApiController {
+	
 	private UserRepository userRepository;
 
 	public PublicRestApiController(UserRepository userRepository) {
@@ -23,7 +24,7 @@ public class PublicRestApiController {
 		return this.userRepository.findAll();
 	}
 
-	// ---------------------------------
+//----------------------------------------------
 
 	@GetMapping("test1")
 	public String test1() {
