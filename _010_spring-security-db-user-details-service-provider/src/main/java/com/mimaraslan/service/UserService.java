@@ -12,6 +12,7 @@ import java.util.List;
 
 @Service
 public class UserService implements CommandLineRunner {
+	
 	private UserRepository userRepository;
 	private PasswordEncoder passwordEncoder;
 
